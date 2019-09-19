@@ -46,7 +46,6 @@ try:
     print "*" * 60
     print("* Host Name is: " + hostName) + " " * hostnameLength + "*"
     print("* Host IP Address is: " + hostIP) + " " * hostIPLength + "*"
-    print "* Scan will automatically stop after 60 seconds." + " " * 11 + "*"
     print "* Please wait, scanning host: ", hostIP + " " * hostIPLength2 + "*"
     print "*" * 60
     
@@ -54,7 +53,7 @@ try:
     t0 = datetime.now()
 
     # Scan all ports between 1 and 1024
-    for port in range(1,1025):
+    for port in range(1,65536):
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         result = sock.connect_ex((hostIP, port))
         if result == 0:
@@ -71,7 +70,7 @@ try:
     total =  t2 - t0
 
     # Generate Report
-    print 'Scanning Completed in: ', total
+    print "Scanning Completed in: ", total
 
 except KeyboardInterrupt:
     print "\nCtrl+C pressed. Closing port scanner."
