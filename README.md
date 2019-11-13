@@ -64,8 +64,8 @@ vagrant up
 ### Run Against Vulnerable Target
 1. Clone this repo and navigate to the main directory.
 2. Open up the Metasploitable 3 within VirtualBox and login. The default credentials are U: vagrant and P: vagrant.
-3. Navigate to the command prompt, run `ipconfig` to get the IP address for the vulnerable targert.
-4. Run `python Main.py` then select option 2 for remote host and start scanning vulnerable target.
+3. Navigate to the command prompt on the VM, run `ipconfig` to get the IP address for the vulnerable targert.
+4. Run `python Main.py` on your local machine then select option 2 for remote host and enter the vulnerable target's IP to begin testing.
 
 ### Other Options
 1. (Local Host) Perform tests against local machine.
