@@ -9,6 +9,7 @@ CIDR = netAddr + '.64/31'
 # Print
 netAddrLength = 25-len(str(netAddr))
 print ("*" * 60)
+print ("* PingSweeper.py", " " * 42 + "*") 
 print ("* Please wait, scanning address: ", netAddr + " " * netAddrLength + "*")
 print ("*" * 60)
 print ("\n")

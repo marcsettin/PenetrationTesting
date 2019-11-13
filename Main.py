@@ -15,7 +15,7 @@ try:
         print ("4. Exit (Ctrl+C)")
         print (60 * "-")
     loop = True
-
+    
     while loop:         
         print_menu()    
         choice = input("Enter your choice [1-3]: ")
@@ -40,24 +40,10 @@ try:
             print ("Exit")
             print ("Closing Main.")
             sys.exit()
-
-    # Calculate Box
-    hostnameLength = 43-len(str(hostName))
-    hostIPLength = 37-len(str(hostIP))
-    hostIPLength2 = 28-len(str(hostIP))
-
-    # Print
-    print ("*" * 60)
-    print ("* Host Name is: " + hostName + " " * hostnameLength + "*")
-    print ("* Host IP Address is: " + hostIP + " " * hostIPLength + "*")
-    print ("* Please wait, scanning host: ", hostIP + " " * hostIPLength2 + "*")
-    print ("*" * 60)
-
-    try:
-        exec(open("./PortScanner.py").read())
-        exec(open("./PasswordCracker.py").read())
-    except SystemExit:
-        print ("hello")
+   
+    exec(open("./PortScanner.py").read())
+    exec(open("./PasswordCracker.py").read())
+        
     
 except KeyboardInterrupt:
     print ("\nCtrl+C pressed. Closing Main.")
