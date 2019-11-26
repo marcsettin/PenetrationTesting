@@ -72,4 +72,3 @@ vagrant up
 2. (Remote Host) Perform tests against remote host.
 3. (Ping Sweep) Ping sweep a local or remote network and select a target. 
 
-

