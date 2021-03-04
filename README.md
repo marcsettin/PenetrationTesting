@@ -1,6 +1,10 @@
 # Penetration Testing
 This software is designed with a suite of scripts that all perform a separate stage of the testing and generate a report of possible vulnerabilities. In order to test this in a safe way this project will have a target hosted on an Oracle VM Virtualbox. The virtual machine will be Metasploitable 3, which is a VM that is built from the ground up with a large amount of security vulnerabilities.
 
+[Technical Report](https://docs.google.com/document/d/14iDKo6DEH50duGWt4EW5q8tGwgR5XCBG8MmXSyHtjrU/edit?usp=sharing)
+
+![alt text](https://github.com/[username]/[reponame]/blob/master/tester.jpg?raw=true)
+
 ## Getting Started
 ------------------
 
