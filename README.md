@@ -3,7 +3,7 @@ This software is designed with a suite of scripts that all perform a separate st
 
 [Technical Report](https://docs.google.com/document/d/14iDKo6DEH50duGWt4EW5q8tGwgR5XCBG8MmXSyHtjrU/edit?usp=sharing)
 
-![Diagram](./images/tester.jpg)
+![Diagram](./diagram.jpg)
 
 ## Getting Started
 ------------------
